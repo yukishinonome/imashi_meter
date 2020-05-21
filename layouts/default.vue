@@ -8,9 +8,22 @@
         <nuxt />
       </v-container>
     </v-content>
-    <v-footer fixed app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+    <v-bottom-navigation :value="activeBtn" color="primary" horizontal grow>
+      <v-btn>
+        <span>ホーム</span>
+        <!-- <v-icon>mdi-history</v-icon> -->
+      </v-btn>
+
+      <v-btn>
+        <span>戒め</span>
+        <!-- <v-icon>mdi-heart</v-icon> -->
+      </v-btn>
+
+      <v-btn>
+        <span>グラフ</span>
+        <!-- <v-icon>mdi-map-marker</v-icon> -->
+      </v-btn>
+    </v-bottom-navigation>
   </v-app>
 </template>
 
@@ -30,10 +43,8 @@ export default {
           to: '/inspire'
         }
       ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'Vuetify.js',
+      activeBtn: 0
     }
   }
 }
