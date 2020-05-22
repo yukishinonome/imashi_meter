@@ -9,19 +9,8 @@
       </v-container>
     </v-content>
     <v-bottom-navigation :value="activeBtn" color="primary" horizontal grow>
-      <v-btn>
-        <span>ホーム</span>
-        <!-- <v-icon>mdi-history</v-icon> -->
-      </v-btn>
-
-      <v-btn>
-        <span>戒め</span>
-        <!-- <v-icon>mdi-heart</v-icon> -->
-      </v-btn>
-
-      <v-btn>
-        <span>グラフ</span>
-        <!-- <v-icon>mdi-map-marker</v-icon> -->
+      <v-btn v-for="(item, index) in items" :key="index" nuxt :to="item.to">
+        <span>{{ item.title }}</span>
       </v-btn>
     </v-bottom-navigation>
   </v-app>
@@ -33,19 +22,26 @@ export default {
     return {
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
+          title: 'ホーム',
           to: '/'
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          title: '戒め',
+          to: '/imashime'
+        },
+        {
+          title: 'グラフ',
+          to: '/graph'
         }
       ],
-      title: 'Vuetify.js',
+      title: '戒メーター',
       activeBtn: 0
     }
+  },
+  methods: {
+    // titleChange(index) {
+    //   this.title = this.items[index].title
+    // }
   }
 }
 </script>
