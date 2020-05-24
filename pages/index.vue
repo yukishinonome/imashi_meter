@@ -8,9 +8,13 @@
 
 <script>
 import HogeCard from '~/components/HogeCard.vue'
+import InputScreen from '~/components/InputScreen.vue'
+import ImashimeCard from '~/components/ImashimeCard.vue'
 export default {
   components: {
-    HogeCard
+    HogeCard,
+    InputScreen,
+    ImashimeCard
   }
 }
 </script>
