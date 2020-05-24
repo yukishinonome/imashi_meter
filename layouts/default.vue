@@ -32,6 +32,10 @@ export default {
         {
           title: 'グラフ',
           to: '/graph'
+        },
+        {
+          title: '履歴',
+          to: '/history'
         }
       ],
       title: '戒メーター',
