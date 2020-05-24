@@ -3,6 +3,14 @@
     <div v-if="printPage == 'MAIN'" class="d-flex flex-column align-center">
       <hoge-card />
       <v-btn color="orange" @click="toInput()">課金金額入力</v-btn>
+      <div>
+        今月の課金総額
+        <br />＊＊＊円
+      </div>
+      <div>
+        課金総額
+        <br />＊＊＊円
+      </div>
     </div>
     <div v-else-if="printPage == 'INPUT'" class="d-flex flex-column align-center">
       <input-screen />
