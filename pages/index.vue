@@ -1,18 +1,18 @@
 <template>
-  <v-layout column justify-center align-center>
-    <v-flex xs12 sm8 md6>
-      <div v-if="printPage == 0">
-        <hoge-card />
-        <v-btn color="orange">課金金額入力</v-btn>
-      </div>
-      <div v-else-if="printPage == 1">
-        <input-screen />
-      </div>
-      <div v-else>
-        <imashime-card />
-      </div>
-    </v-flex>
-  </v-layout>
+  <div>
+    <div v-if="printPage == 0" class="d-flex flex-column align-center">
+      <hoge-card />
+      <v-btn color="orange">課金金額入力</v-btn>
+    </div>
+    <div v-else-if="printPage == 1" class="d-flex flex-column align-center">
+      <input-screen />
+      <v-btn color="orange">追加</v-btn>
+    </div>
+    <div v-else class="d-flex flex-column align-center">
+      <imashime-card />
+      <v-btn color="orange">閉じる</v-btn>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
