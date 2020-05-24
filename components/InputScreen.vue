@@ -5,3 +5,7 @@
     <v-text-field label="懺悔せよ" single-line outlined></v-text-field>
   </div>
 </template>
+
+<script>
+export default {}
+</script>
