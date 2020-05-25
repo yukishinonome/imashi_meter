@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="history in items" :key="history.id">
+        <tr v-for="history in histories" :key="history.id">
           <td>{{history.id}}</td>
           <td>{{history.amounts}}</td>
           <td>{{history.category}}</td>
@@ -50,19 +50,15 @@ export default {
       ]
     }
   },
-  // APIより履歴データをロード
-  created() {
-    // axios
-    //   .get('https://api-server-gtb.herokuapp.com/histories')
-    //   .then((response) => {
-    //     this.histories = response.data;
-    //   }).catch(function(err){
-    //     console.log(err)
-    //   })
-  },
   methods: {
-    loadHistories(){
+    // APIより履歴データをロード
+    async loadHistories() {
+      const data = await this.$axios.$get('https://api-server-gtb.herokuapp.com/histories')
+      this.histories = data;
     }
+  },
+  mounted() {
+    this.loadHistories()
   }
 }
 </script>
