@@ -7,7 +7,7 @@
           <th class="text-left">ID</th>
           <th class="text-left">課金額</th>
           <th class="text-left">カテゴリー</th>
-          <th class="text-left">日時</th>
+          <th class="text-left">日付</th>
         </tr>
       </thead>
       <tbody>
@@ -15,7 +15,7 @@
           <td>{{history.id}}</td>
           <td>{{history.amounts}}</td>
           <td>{{history.category}}</td>
-          <td>{{history.created_at}}</td>
+          <td>{{history.created_at.slice(0, 10)}}</td>
         </tr>
       </tbody>
     </v-simple-table>
