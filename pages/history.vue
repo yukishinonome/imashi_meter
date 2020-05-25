@@ -1,34 +1,68 @@
 <template>
   <div>
     <v-list-item-title>履歴</v-list-item-title>
-    <v-list-item>
+    <v-simple-table>
+      <thead>
+        <tr>
+          <th class="text-left">ID</th>
+          <th class="text-left">課金額</th>
+          <th class="text-left">カテゴリー</th>
+          <th class="text-left">日時</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="history in items" :key="history.id">
+          <td>{{history.id}}</td>
+          <td>{{history.amounts}}</td>
+          <td>{{history.category}}</td>
+          <td>{{history.created_at}}</td>
+        </tr>
+      </tbody>
+    </v-simple-table>
+    <!-- <v-list-item v-for="n of 5" :key="n">
       <v-list-item-content>
+        <v-list-item-title>{{history.amounts}}</v-list-item-title>
+        <v-list-item-title>{{history.category}}</v-list-item-title>
         <v-list-item-title>Single-line item</v-list-item-title>
       </v-list-item-content>
-    </v-list-item>
-    <v-divider></v-divider>
-    <v-list-item>
-      <v-list-item-content>
-        <v-list-item-title>Single-line item</v-list-item-title>
-      </v-list-item-content>
-    </v-list-item>
-    <v-divider></v-divider>
-    <v-list-item>
-      <v-list-item-content>
-        <v-list-item-title>Single-line item</v-list-item-title>
-      </v-list-item-content>
-    </v-list-item>
-    <v-divider></v-divider>
-    <v-list-item>
-      <v-list-item-content>
-        <v-list-item-title>Single-line item</v-list-item-title>
-      </v-list-item-content>
-    </v-list-item>
-    <v-divider></v-divider>
-    <v-list-item>
-      <v-list-item-content>
-        <v-list-item-title>Single-line item</v-list-item-title>
-      </v-list-item-content>
-    </v-list-item>
+    </v-list-item> -->
   </div>
 </template>
+<script>
+
+export default {
+  data(){
+    return {
+      histories:[],
+      items: [
+        {
+          id: 1,
+          amounts: 1230,
+          category: "カジノ",
+          created_at: "2020/06/23"
+        },
+        {
+          id: 2,
+          amounts: 1230,
+          category: "カジノ",
+          created_at: "2020/06/23"
+        }
+      ]
+    }
+  },
+  // APIより履歴データをロード
+  created() {
+    // axios
+    //   .get('https://api-server-gtb.herokuapp.com/histories')
+    //   .then((response) => {
+    //     this.histories = response.data;
+    //   }).catch(function(err){
+    //     console.log(err)
+    //   })
+  },
+  methods: {
+    loadHistories(){
+    }
+  }
+}
+</script>
