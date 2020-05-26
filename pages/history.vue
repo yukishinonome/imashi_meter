@@ -30,6 +30,7 @@ export default {
       histories:[]
     }
   },
+  
   methods: {
     // APIより履歴データをロード
     async loadHistories() {
