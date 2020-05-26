@@ -3,42 +3,130 @@
     <v-card class="mx-auto" max-width="800" outlined>
       <v-list-item three-line>
         <v-list-item-content>
-          <v-list-item-title class="headline mb-1">
+          <v-list-item-title class="headline mb-1 text-align-center">
             課金総額
             <br />＊＊＊円
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-card>
-    <v-list-item-title>戒めリスト</v-list-item-title>
+    <br />
+    <div>戒めリスト</div>
     <v-list-item>
       <v-list-item-content>
-        <v-list-item-title>Single-line item</v-list-item-title>
+        <v-list-item-title>うまい棒（10円）</v-list-item-title>
+      </v-list-item-content>
+      <v-spacer></v-spacer>
+      <v-list-item-content>
+        <v-list-item-title>＊個分</v-list-item-title>
       </v-list-item-content>
     </v-list-item>
     <v-divider></v-divider>
     <v-list-item>
       <v-list-item-content>
-        <v-list-item-title>Single-line item</v-list-item-title>
+        <v-list-item-title>ハーゲンダッツ（300円）</v-list-item-title>
+      </v-list-item-content>
+      <v-spacer></v-spacer>
+      <v-list-item-content>
+        <v-list-item-title>＊個分</v-list-item-title>
       </v-list-item-content>
     </v-list-item>
     <v-divider></v-divider>
     <v-list-item>
       <v-list-item-content>
-        <v-list-item-title>Single-line item</v-list-item-title>
+        <v-list-item-title>小説（500円）</v-list-item-title>
+      </v-list-item-content>
+      <v-spacer></v-spacer>
+      <v-list-item-content>
+        <v-list-item-title>＊冊分</v-list-item-title>
       </v-list-item-content>
     </v-list-item>
     <v-divider></v-divider>
     <v-list-item>
       <v-list-item-content>
-        <v-list-item-title>Single-line item</v-list-item-title>
+        <v-list-item-title>専門書（1000円）</v-list-item-title>
+      </v-list-item-content>
+      <v-spacer></v-spacer>
+      <v-list-item-content>
+        <v-list-item-title>＊冊分</v-list-item-title>
       </v-list-item-content>
     </v-list-item>
     <v-divider></v-divider>
     <v-list-item>
       <v-list-item-content>
-        <v-list-item-title>Single-line item</v-list-item-title>
+        <v-list-item-title>うな重（3,000円）</v-list-item-title>
+      </v-list-item-content>
+      <v-spacer></v-spacer>
+      <v-list-item-content>
+        <v-list-item-title>＊食分</v-list-item-title>
       </v-list-item-content>
     </v-list-item>
+    <v-divider></v-divider>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>焼肉（5,000円）</v-list-item-title>
+      </v-list-item-content>
+      <v-spacer></v-spacer>
+      <v-list-item-content>
+        <v-list-item-title>＊食分</v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+    <v-divider></v-divider>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>美容院（10,000円）</v-list-item-title>
+      </v-list-item-content>
+      <v-spacer></v-spacer>
+      <v-list-item-content>
+        <v-list-item-title>＊回分</v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+    <v-divider></v-divider>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>国内旅行（30,000円）</v-list-item-title>
+      </v-list-item-content>
+      <v-spacer></v-spacer>
+      <v-list-item-content>
+        <v-list-item-title>＊回分</v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+    <v-divider></v-divider>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>ハワイ旅行（400,000円）</v-list-item-title>
+      </v-list-item-content>
+      <v-spacer></v-spacer>
+      <v-list-item-content>
+        <v-list-item-title>＊回分</v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+    <v-divider></v-divider>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>ベンツ（10,000,000円）</v-list-item-title>
+      </v-list-item-content>
+      <v-spacer></v-spacer>
+      <v-list-item-content>
+        <v-list-item-title>＊台分</v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+    <v-divider></v-divider>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>別荘（30,000,000円）</v-list-item-title>
+      </v-list-item-content>
+      <v-spacer></v-spacer>
+      <v-list-item-content>
+        <v-list-item-title>＊軒分</v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+    <v-divider></v-divider>
   </div>
 </template>
+
+<style lang="scss">
+.text-align-center {
+  text-align: center;
+}
+</style>
