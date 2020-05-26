@@ -8,7 +8,7 @@
         <nuxt />
       </v-container>
     </v-content>
-    <v-bottom-navigation :value="activeBtn" color="primary" horizontal grow>
+    <v-bottom-navigation fixed :value="activeBtn" color="primary" horizontal grow>
       <v-btn v-for="(item, index) in items" :key="index" nuxt :to="item.to">
         <span>{{ item.title }}</span>
       </v-btn>
