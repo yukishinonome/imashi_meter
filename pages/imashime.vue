@@ -5,7 +5,7 @@
         <v-list-item-content>
           <v-list-item-title class="headline mb-1 text-align-center">
             課金総額
-            <br />＊＊＊円
+            <br />***,***円
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -13,83 +13,10 @@
     <br />
     <div>戒めリスト</div>
     <v-simple-table fixed-header dark>
-      <thead>
-        <tr>
-          <th>うまい棒（10円）</th>
-          <v-spacer></v-spacer>
-          <th>＊個分</th>
-        </tr>
-      </thead>
-      <thead>
-        <tr>
-          <th>ハーゲンダッツ（300円）</th>
-          <v-spacer></v-spacer>
-          <th>＊個分</th>
-        </tr>
-      </thead>
-      <thead>
-        <tr>
-          <th>小説（500円）</th>
-          <v-spacer></v-spacer>
-          <th>＊冊分</th>
-        </tr>
-      </thead>
-      <thead>
-        <tr>
-          <th>専門書（1,000円）</th>
-          <v-spacer></v-spacer>
-          <th>＊冊分</th>
-        </tr>
-      </thead>
-      <thead>
-        <tr>
-          <th>うな重（3,000円）</th>
-          <v-spacer></v-spacer>
-          <th>＊個分</th>
-        </tr>
-      </thead>
-      <thead>
-        <tr>
-          <th>焼肉（5,000円）</th>
-          <v-spacer></v-spacer>
-          <th>＊食分</th>
-        </tr>
-      </thead>
-      <thead>
-        <tr>
-          <th>美容院（10,000円）</th>
-          <v-spacer></v-spacer>
-          <th>＊回分</th>
-        </tr>
-      </thead>
-      <thead>
-        <tr>
-          <th>国内旅行（30,000円）</th>
-          <v-spacer></v-spacer>
-          <th>＊回分</th>
-        </tr>
-      </thead>
-      <thead>
-        <tr>
-          <th>ハワイ旅行（400,000円）</th>
-          <v-spacer></v-spacer>
-          <th>＊回分</th>
-        </tr>
-      </thead>
-      <thead>
-        <tr>
-          <th>ベンツ（10,000,000円）</th>
-          <v-spacer></v-spacer>
-          <th>＊台分</th>
-        </tr>
-      </thead>
-      <thead>
-        <tr>
-          <th>別荘（30,000,000円）</th>
-          <v-spacer></v-spacer>
-          <th>＊軒分</th>
-        </tr>
-      </thead>
+      <tr v-for="item in items" :key="item.category">
+        <td>{{ item.category }}</td>
+        <td>{{ item.unit }}</td>
+      </tr>
     </v-simple-table>
     <v-divider></v-divider>
   </div>
@@ -100,3 +27,57 @@
   text-align: center;
 }
 </style>
+<script>
+export default {
+  data() {
+    return {
+      items: [
+        {
+          category: 'うまい棒（10円）',
+          unit: '個分'
+        },
+        {
+          category: 'ハーゲンダッツ（300円）',
+          unit: '個分'
+        },
+        {
+          category: '小説（500円）',
+          unit: '冊分'
+        },
+        {
+          category: '専門書（1,000円）',
+          unit: '冊分'
+        },
+        {
+          category: 'うな重（3,000円）',
+          unit: '食分'
+        },
+        {
+          category: '焼肉（5,000円）',
+          unit: '食分'
+        },
+        {
+          category: '美容院（10,000円）',
+          unit: '回分'
+        },
+        {
+          category: '国内旅行（30,000円）',
+          unit: '回分'
+        },
+        {
+          category: 'ハワイ旅行（400,000円）',
+          unit: '回分'
+        },
+        {
+          category: 'ベンツ（10,000,000円）',
+          unit: '台分'
+        },
+        {
+          category: '別荘（30,000,000円）',
+          unit: '軒分'
+        }
+      ]
+    }
+  }
+}
+</script>
