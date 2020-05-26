@@ -1,18 +1,13 @@
 <template>
   <div>
-    <v-card class="mx-auto" max-width="800" outlined>
-      <v-list-item three-line>
-        <v-list-item-content>
-          <v-list-item-title class="headline mb-1">グラフ</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-    </v-card>
+    <div class="text-center">今月</div>
+    <graph-chart-component></graph-chart-component>
     <v-divider></v-divider>
     <v-simple-table fixed-header dark height="300px">
       <thead>
         <tr class="text-left">
-          <th class="font-weight-black">総額</th>
-          <th class="font-weight-black">{{totalAmount}}</th>
+          <th class="font-weight-black" height="1000px">総額</th>
+          <th class="font-weight-black" height="1000px">{{totalAmount}}</th>
         </tr>
       </thead>
       <tbody>
@@ -26,6 +21,9 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import graphScreen from '~/components/graphScreen'
+
 export default {
   data(){
     return {
@@ -33,7 +31,9 @@ export default {
       histories:[]
     }
   },
-
+  components: {
+    graphScreen
+  },
   methods: {
     // APIより履歴データをロード
     async loadHistories() {
@@ -45,4 +45,6 @@ export default {
     this.loadHistories()
   }
 }
+
+Vue.component('doughnut-chart-component', graphScreen)
 </script>
