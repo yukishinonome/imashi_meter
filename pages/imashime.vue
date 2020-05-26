@@ -6,9 +6,6 @@
           <v-list-item-title class="headline mb-1 text-align-center">
             課金総額
             <br />＊＊＊円
-            <br />
-            <div>更新日時 ****/**/**</div>
-            <br />
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
