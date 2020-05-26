@@ -4,7 +4,7 @@
     <h2>履歴</h2>
     <br>
     <v-divider></v-divider>
-    <v-simple-table fixed-header>
+    <v-simple-table fixed-header dark>
       <thead>
         <tr>
           <th class="text-left">カテゴリー</th>
@@ -20,13 +20,6 @@
         </tr>
       </tbody>
     </v-simple-table>
-    <!-- <v-list-item v-for="history in histories">
-      <v-list-item-content>
-        <v-list-item-title>{{history.amounts}}</v-list-item-title>
-        <v-list-item-title>{{history.category}}</v-list-item-title>
-        <v-list-item-title>Single-line item</v-list-item-title>
-      </v-list-item-content>
-    </v-list-item> -->
   </div>
 </template>
 <script>
