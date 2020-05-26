@@ -7,17 +7,17 @@
             課金総額
             <br />＊＊＊円
             <br />
-            <font size="2" color="#979797">更新日時 ****/**/**</font>
+            <div>更新日時 ****/**/**</div>
             <br />
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-card>
     <br />
-    <font size="5" color="#ffffff">戒めリスト</font>
+    <div>戒めリスト</div>
     <v-list-item>
       <v-list-item-content>
-        <v-list-item-title>うまい棒(10円)</v-list-item-title>
+        <v-list-item-title>うまい棒（10円）</v-list-item-title>
       </v-list-item-content>
       <v-spacer></v-spacer>
       <v-list-item-content>
