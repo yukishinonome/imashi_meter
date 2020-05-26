@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-center">今月</div>
-    <graph-chart-component></graph-chart-component>
+    <doughnut-chart-component></doughnut-chart-component>
     <v-divider></v-divider>
     <v-simple-table fixed-header dark height="300px">
       <thead>
@@ -25,14 +25,14 @@ import Vue from 'vue'
 import graphScreen from '~/components/graphScreen'
 
 export default {
+  components: {
+    graphScreen
+  },
   data(){
     return {
       totalAmount: String(1888) + "円",
       histories:[]
     }
-  },
-  components: {
-    graphScreen
   },
   methods: {
     // APIより履歴データをロード
