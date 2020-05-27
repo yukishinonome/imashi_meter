@@ -1,8 +1,8 @@
 <template>
   <v-app dark>
-    <v-app-bar flat app hide-on-scroll>
+    <header>
       <img src="/logo_white.svg" alt="logo" />
-    </v-app-bar>
+    </header>
     <v-content>
       <v-container>
         <nuxt />
@@ -51,8 +51,11 @@ export default {
 </script>
 
 <style lang="scss">
-.theme--dark.v-app-bar.v-toolbar.v-sheet {
-  background-color: #121212;
+header {
+  height: 64px;
+  text-align: center;
+  padding-top: 12px;
+  padding-bottom: 4px;
 }
 
 .theme--dark.v-bottom-navigation {
@@ -61,7 +64,6 @@ export default {
 }
 
 img {
-  margin: 0 auto;
-  height: 90%;
+  height: 100%;
 }
 </style>
