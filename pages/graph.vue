@@ -14,7 +14,7 @@
       <tbody>
         <tr v-for="[key, value] in Array.from(categoriesAmounts)">
           <td>{{ key }}</td>
-          <td>{{ value }}</td>
+          <td>{{ value }}円</td>
         </tr>
       </tbody>
     </v-simple-table>
