@@ -12,15 +12,15 @@
           </div>
         </div>
       </div>
-      <v-btn color="#006FFF" outlined rounded @click="toInput()">課金金額入力</v-btn>
+      <v-btn color="#006FFF" outlined rounded large @click="toInput()">課金金額入力</v-btn>
     </div>
     <div v-else-if="printPage == 'INPUT'" class="d-flex flex-column align-center">
       <input-screen />
-      <v-btn color="#006FFF" outlined rounded @click="toImashime()">追加</v-btn>
+      <v-btn color="#006FFF" outlined rounded large @click="toImashime()">追加</v-btn>
     </div>
     <div v-else class="d-flex flex-column align-center">
       <imashime-card />
-      <v-btn color="#006FFF" outlined rounded @click="toMain()">閉じる</v-btn>
+      <v-btn color="#006FFF" outlined rounded large @click="toMain()">閉じる</v-btn>
     </div>
   </div>
 </template>
@@ -68,12 +68,8 @@ export default {
   font-size: 2.2rem;
 }
 
-.v-btn.v-size--default {
+.v-btn.v-size--large {
   font-size: 1.2rem;
-}
-
-.v-btn:not(.v-btn--round).v-size--default {
-  height: 40px;
 }
 
 .v-btn--outlined {
