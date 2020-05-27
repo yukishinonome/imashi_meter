@@ -14,7 +14,7 @@
       </div>
       <v-btn color="#006FFF" outlined rounded large :ripple="false" @click="toInput">課金金額入力</v-btn>
     </div>
-    <div v-else-if="printPage == 'INPUT'" class="d-flex flex-column align-center container">
+    <div v-else-if="printPage == 'INPUT'" class="d-flex flex-column align-center">
       <input-screen />
       <div>
         <v-btn
@@ -28,7 +28,7 @@
         >戻る</v-btn>
         <v-btn
           color="#006FFF"
-          class="btn-margin"
+          class="margin-left-right"
           outlined
           rounded
           large
@@ -37,7 +37,7 @@
         >追加</v-btn>
       </div>
     </div>
-    <div v-else class="d-flex flex-column align-center container">
+    <div v-else class="d-flex flex-column align-center">
       <imashime-card />
       <v-btn color="#006FFF" outlined rounded large :ripple="false" @click="toMain">閉じる</v-btn>
     </div>
@@ -114,9 +114,5 @@ export default {
 
 .v-btn--outlined {
   border: 2px solid #006fff;
-}
-
-.btn-margin {
-  margin: 0 10px;
 }
 </style>

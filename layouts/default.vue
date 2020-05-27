@@ -83,8 +83,21 @@ img {
   margin: 0 auto;
 }
 
+.component-container {
+  @extend .page-container;
+  height: initial;
+}
+
 .list-title {
   font-size: 1.2rem;
   border-bottom: 2px solid #006fff;
+}
+
+.margin-left-right {
+  margin: 0 10px;
+}
+
+.margin-up-down {
+  margin: 10px 0;
 }
 </style>
