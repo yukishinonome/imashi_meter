@@ -77,29 +77,20 @@ export default {
 
       const map = new Map()
       const sum = Array(categoryArray.length)
-      console.log(sum.length)
 
       Object.entries(categoryArray).forEach(([categoryKey, categoryValue]) => {
         sum[categoryKey] = 0
         Object.entries(histories).forEach(([historyKey, history]) => {
           if (categoryValue == history.category) {
             sum[categoryKey] = sum[categoryKey] + history.amounts
-            console.log('----------')
-            console.log(categoryKey)
-            console.log(categoryValue)
-            console.log(history.category)
-            console.log(sum[categoryKey])
-            console.log('----------')
             map.set(categoryValue, sum[categoryKey])
           }
         })
       })
       this.categoriesAmounts = map
-      console.log(this.categoriesAmounts)
-
-      // console.log(this.categoriesAmounts[0].value)
     },
 
+    // 課金総額計算
     calculateTotalAmounts(histories) {
       Object.entries(histories).forEach(([key, value]) => {
         this.totalAmount += value.amounts
@@ -117,17 +108,16 @@ export default {
         const now = new Date()
         const thisMonth = now.getMonth() + 1
 
-        // 今月である履歴データだけ取り出す
-        for (let i = 0; i < historyData.length; i++) {
-          if (this.getHistoryMonth(historyData[i]) == thisMonth) {
-            console.log('今月は等しい')
-            // 今月分の履歴のみthisMonthHistoriesに追加
-            this.thisMonthHistories.push(historyData[i])
+        Object.entries(historyData).forEach(([key, value]) => {
+          if (this.getHistoryMonth(value) == thisMonth) {
+            console.log('今月に等しい')
+            this.thisMonthHistories.push(value)
           } else {
-            console.log('今月は等しくない')
+            console.log('今月ではない')
           }
-        }
-        // console.log(this.thisMonthHistories)
+        })
+
+        // 今月の課金総額と今月のカテゴリー別の課金総額を計算
         this.calculateTotalAmounts(this.thisMonthHistories)
         this.calculateCategoriesAmounts(this.thisMonthHistories)
 
