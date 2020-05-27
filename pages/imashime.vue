@@ -77,7 +77,7 @@ export default {
         },
         {
           category: '美容院（10,000円）',
-          price: 100000,
+          price: 10000,
           num: 0,
           unit: '回分'
         },
@@ -118,17 +118,14 @@ export default {
         'https://api-server-gtb.herokuapp.com/histories'
       )
       this.histories = data
-      // console.log(parseInt(3.5))
-      console.log(this.num)
 
       Object.entries(this.histories).forEach(([key, value]) => {
-        console.log(value.amounts)
+
         this.sum += value.amounts
       })
       Object.entries(this.items).forEach(([key, value]) => {
         this.items[key].num = parseInt(this.sum / value.price)
       })
-      console.log(Object.values(this.items))
     }
   }
 }
