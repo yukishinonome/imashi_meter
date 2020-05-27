@@ -52,9 +52,9 @@ export default {
 
 <style lang="scss">
 header {
-  height: 54px;
+  height: 64px;
   text-align: center;
-  padding-top: 14px;
+  padding-top: 12px;
   padding-bottom: 4px;
 }
 
