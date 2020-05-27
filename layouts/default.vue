@@ -86,6 +86,7 @@ img {
 .component-container {
   @extend .page-container;
   height: initial;
+  width: 100%;
 }
 
 .list-title {

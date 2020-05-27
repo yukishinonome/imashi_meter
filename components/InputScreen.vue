@@ -10,7 +10,7 @@
         color="#006FFF"
         group
       >
-        <v-btn :value="icon.alt" outlined>
+        <v-btn :value="icon.alt" outlined color="#006FFF">
           <img :src="icon.src" :alt="icon.alt" width="48" />
         </v-btn>
       </v-btn-toggle>
