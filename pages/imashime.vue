@@ -26,7 +26,6 @@
     <v-divider></v-divider>
   </div>
 </template>
-
 <style lang="scss">
 .text-align-center {
   text-align: center;
@@ -118,9 +117,7 @@ export default {
         'https://api-server-gtb.herokuapp.com/histories'
       )
       this.histories = data
-
       Object.entries(this.histories).forEach(([key, value]) => {
-
         this.sum += value.amounts
       })
       Object.entries(this.items).forEach(([key, value]) => {
