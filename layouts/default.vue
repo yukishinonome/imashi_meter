@@ -51,6 +51,14 @@ export default {
 </script>
 
 <style lang="scss">
+.v-application--wrap {
+  overflow: scroll;
+}
+
+.v-btn {
+  height: 100%;
+}
+
 header {
   height: 64px;
   text-align: center;
@@ -65,5 +73,18 @@ header {
 
 img {
   height: 100%;
+}
+
+.page-container {
+  height: 80vh;
+  padding: 0 10px;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.list-title {
+  font-size: 1.2rem;
+  border-bottom: 2px solid #006fff;
 }
 </style>
