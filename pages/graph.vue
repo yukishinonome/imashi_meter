@@ -6,8 +6,8 @@
     <v-simple-table fixed-header dark height="300px">
       <thead>
         <tr class="text-left">
-          <th class="font-weight-black" height="1000px">総額</th>
-          <th class="font-weight-black" height="1000px">{{totalAmount}}</th>
+          <th>総額</th>
+          <th>{{totalAmount}}</th>
         </tr>
       </thead>
       <tbody>
