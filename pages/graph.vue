@@ -8,13 +8,13 @@
       <thead>
         <tr class="text-left">
           <th>総額</th>
-          <th>{{ totalAmount }}</th>
+          <th>{{ totalAmount }}円</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="history in histories" :key="history.id">
-          <td>{{ history.category }}</td>
-          <td>{{ history.amounts }}</td>
+        <tr v-for="[key, value] in Array.from(categoriesAmounts)">
+          <td>{{ key }}</td>
+          <td>{{ value }}</td>
         </tr>
       </tbody>
     </v-simple-table>
@@ -41,7 +41,8 @@ export default {
       },
       totalAmount: 0,
       histories: [],
-      thisMonthHistories: []
+      thisMonthHistories: [],
+      categoriesAmounts: []
     }
   },
   mounted() {
@@ -65,11 +66,42 @@ export default {
     },
 
     // 各カテゴリーの総額計算
-    calculateCategoriesAmounts(histories) {},
+    calculateCategoriesAmounts(histories) {
+      const array = []
+
+      // カテゴリーの重複をなくす
+      Object.entries(histories).forEach(([key, value]) => {
+        array.push(value.category)
+      })
+      const categoryArray = Array.from(new Set(array))
+
+      const map = new Map()
+      const sum = Array(categoryArray.length)
+      console.log(sum.length)
+
+      Object.entries(categoryArray).forEach(([categoryKey, categoryValue]) => {
+        sum[categoryKey] = 0
+        Object.entries(histories).forEach(([historyKey, history]) => {
+          if (categoryValue == history.category) {
+            sum[categoryKey] = sum[categoryKey] + history.amounts
+            console.log('----------')
+            console.log(categoryKey)
+            console.log(categoryValue)
+            console.log(history.category)
+            console.log(sum[categoryKey])
+            console.log('----------')
+            map.set(categoryValue, sum[categoryKey])
+          }
+        })
+      })
+      this.categoriesAmounts = map
+      console.log(this.categoriesAmounts)
+
+      // console.log(this.categoriesAmounts[0].value)
+    },
 
     calculateTotalAmounts(histories) {
       Object.entries(histories).forEach(([key, value]) => {
-        console.log(value.amounts)
         this.totalAmount += value.amounts
       })
     },
@@ -95,8 +127,9 @@ export default {
             console.log('今月は等しくない')
           }
         }
-        console.log(this.thisMonthHistories)
+        // console.log(this.thisMonthHistories)
         this.calculateTotalAmounts(this.thisMonthHistories)
+        this.calculateCategoriesAmounts(this.thisMonthHistories)
 
         // 重複がないようにカテゴリーを配列labelsに追加
         for (let i = 0; i < this.thisMonthHistories.length; i++) {
