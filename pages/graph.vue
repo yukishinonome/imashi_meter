@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-center">今月</div>
-    <doughnut-chart-component v-if="loaded" :chart-data="dataCollection" />
+    <doughnut-chart-component v-if="loaded" :data="dataCollection" />
     <v-divider></v-divider>
     <v-simple-table fixed-header dark height="300px">
       <thead>
