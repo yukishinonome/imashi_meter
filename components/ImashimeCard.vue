@@ -1,12 +1,22 @@
 <template>
-  <div>
-    <v-row justify="center">
-      <div>あなたが今投じた金額は…</div>
-    </v-row>
-    <v-row justify="center" class=".display-2">
-      <div>{{ judgementResult }}</div>
-    </v-row>
-    <img :src="imagePath" alt="result" />
+  <div
+    class="component-container d-flex flex-column justify-center align-center"
+  >
+    <div class="text-center result-box">
+      あなたが今投じた金額は・・・<br />{{ judgementResult }}
+    </div>
+    <img :src="imagePath" alt="result" class="margin-up-down" />
+    <div class="text-center margin-up-down">
+      <v-btn
+        color="#006FFF"
+        outlined
+        rounded
+        large
+        :ripple="false"
+        @click="$emit('componentToMain')"
+        >閉じる</v-btn
+      >
+    </div>
   </div>
 </template>
 
@@ -74,3 +84,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.result-box {
+  border: 2px solid #006fff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+</style>

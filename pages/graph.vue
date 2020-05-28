@@ -7,17 +7,17 @@
       :data="dataCollection"
     />
     <div class="list-title full-width">カテゴリー別の課金総額</div>
-    <v-simple-table fixed-header dark height="30vh" class="full-width">
+    <v-simple-table fixed-header dark height="25vh" class="full-width">
       <thead>
         <tr class="text-left">
           <th>総額</th>
-          <th>{{ totalAmount }}円</th>
+          <th>{{ totalAmount.toLocaleString() }}円</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="[key, value] in Array.from(categoriesAmounts)" :key="key">
           <td>{{ key }}</td>
-          <td>{{ value }}円</td>
+          <td>{{ parseInt(value).toLocaleString() }}円</td>
         </tr>
       </tbody>
     </v-simple-table>

@@ -12,14 +12,27 @@
           </div>
         </div>
       </div>
-      <v-btn color="#006FFF" outlined rounded large :ripple="false" @click="toInput">課金金額入力</v-btn>
+      <v-btn
+        color="#006FFF"
+        outlined
+        rounded
+        large
+        :ripple="false"
+        @click="toInput"
+        >課金金額入力</v-btn
+      >
     </div>
-    <div v-else-if="printPage == 'INPUT'" class="d-flex flex-column align-center">
-      <input-screen @componentToMain="toMain" @componentToImashime="toImashime" />
+    <div
+      v-else-if="printPage == 'INPUT'"
+      class="d-flex flex-column align-center"
+    >
+      <input-screen
+        @componentToMain="toMain"
+        @componentToImashime="toImashime"
+      />
     </div>
     <div v-else class="d-flex flex-column align-center">
-      <imashime-card />
-      <v-btn color="#006FFF" outlined rounded large :ripple="false" @click="toMain">閉じる</v-btn>
+      <imashime-card @componentToMain="toMain" />
     </div>
   </div>
 </template>
@@ -53,6 +66,11 @@ export default {
     },
     toMain() {
       this.printPage = 'MAIN'
+      this.updateData()
+    },
+    updateData() {
+      this.totalAmount = 0
+      this.loadHistories()
     },
     async loadHistories() {
       try {
