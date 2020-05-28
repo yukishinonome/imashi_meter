@@ -7,10 +7,11 @@
         :key="index"
         v-model="iconType"
         tile
-        color="#006FFF"
-        group
+        background-color="transparent"
+        borderless
+        active-class="icon-style"
       >
-        <v-btn :value="icon.alt" outlined color="#006FFF">
+        <v-btn :value="icon.alt" color="#006FFF" outlined>
           <img :src="icon.src" :alt="icon.alt" width="48" />
         </v-btn>
       </v-btn-toggle>
@@ -61,3 +62,9 @@ export default {
   })
 }
 </script>
+
+<style lang="scss">
+.icon-style {
+  background-color: #006fff;
+}
+</style>

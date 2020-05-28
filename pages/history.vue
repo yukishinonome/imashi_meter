@@ -2,7 +2,7 @@
   <div class="page-container">
     <div class="list-title">履歴</div>
     <v-divider></v-divider>
-    <v-simple-table fixed-header dark>
+    <v-simple-table fixed-header dark height="65vh">
       <thead>
         <tr>
           <th>日付</th>
