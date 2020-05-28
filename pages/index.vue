@@ -8,7 +8,7 @@
         <div class="circle d-flex flex-column justify-center align-center">
           <div>今月の課金総額</div>
           <div>
-            <span class="big-text">＊＊＊</span>円
+            <span class="big-text">{{ totalAmount.toLocaleString() }}</span>円
           </div>
         </div>
       </div>
@@ -54,8 +54,14 @@ export default {
     ImashimeCard
   },
   data: () => ({
-    printPage: 'MAIN'
+    printPage: 'MAIN',
+    totalAmount: 0,
+    thisMonthHistories: []
   }),
+  mounted() {
+    this.loadHistories()
+    // this.renderChart(this.datas, this.options)
+  },
   methods: {
     toInput() {
       this.printPage = 'INPUT'
@@ -65,6 +71,38 @@ export default {
     },
     toMain() {
       this.printPage = 'MAIN'
+    },
+    async loadHistories() {
+      try {
+        const data = await this.$axios.$get(
+          'https://api-server-gtb.herokuapp.com/histories'
+        )
+        const now = new Date()
+        const thisMonth = now.getMonth() + 1
+        Object.entries(data).forEach(([key, value]) => {
+          if (this.getHistoryMonth(value) == thisMonth) {
+            this.thisMonthHistories.push(value)
+          } else {
+          }
+        })
+        Object.entries(this.thisMonthHistories).forEach(([key, value]) => {
+          this.totalAmount += value.amounts
+        })
+      } catch (e) {
+        console.error(e)
+      }
+    },
+    getHistoryMonth(history) {
+      const month = history.created_at.slice(5, 7)
+      let historyMonth
+      if (month.match(/0/)) {
+        // もし1（01）〜9（09）月なら
+        historyMonth = month.substring(1, 2)
+      } else {
+        // もし10（10）〜12（12）月なら
+        historyMonth = month
+      }
+      return historyMonth
     }
   }
 }
