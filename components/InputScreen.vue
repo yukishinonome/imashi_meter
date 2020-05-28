@@ -16,13 +16,6 @@
         </v-btn>
       </v-btn-toggle>
     </div>
-    <v-btn value="game_icon" color="#006FFF" outlined>
-      <img src="/category_game.png" alt="game_icon" width="48" />
-    </v-btn>
-    <v-btn value="game_icon" color="#006FFF" outlined>
-      <v-icon>mdi-pencil</v-icon>
-    </v-btn>
-    <img src="/category_game.png" alt="game_icon" width="48" />
     <div class="list-title">課金額（半角数字）</div>
     <div>
       <div class="text-center big-text margin-up-down">＊＊＊円</div>
