@@ -1,8 +1,7 @@
 <template>
   <div>
     <div class="text-center">今月</div>
-    <!-- <doughnut-chart-component v-if="loaded" :chartdata="datas" :options="options" /> -->
-    <canvas id="myChart"></canvas>
+    <doughnut-chart-component v-if="loaded" :chart-data="dataCollection" />
     <v-divider></v-divider>
     <v-simple-table fixed-header dark height="300px">
       <thead>
@@ -32,13 +31,15 @@ export default {
   data() {
     return {
       loaded: false,
-      options: {
-        responsive: true
-      },
-      data: {
-        labels: [],
-        data: []
-      },
+      // options: {
+      //   responsive: true,
+      //   maintainAspectRatio: true
+      // },
+      // data: {
+      //   labels: [],
+      //   data: []
+      // },
+      dataCollection: null,
       totalAmount: 0,
       histories: [],
       thisMonthHistories: [],
@@ -97,6 +98,19 @@ export default {
       })
     },
 
+    fillData(labels, data, backgroundColor) {
+      this.loaded = true
+      this.dataCollection = {
+        labels: ['A', 'B', 'C'],
+        datasets: [
+          {
+            data: [10, 20, 30],
+            backgroundColor: ['#f87979', '#aa4c8f', '#38b48b']
+          }
+        ]
+      }
+    },
+
     // APIより履歴データをロード
     async loadHistories() {
       this.loaded = false
@@ -130,9 +144,11 @@ export default {
 
         this.histories = historyData
 
-        console.log(this.datas.labels)
-        console.log(this.datas.datasets[0].data)
-        console.log(this.datas.datasets[0].backgroundColor)
+        this.fillData(2, 3, 4)
+
+        // console.log(this.datas.labels)
+        // console.log(this.datas.datasets[0].data)
+        // console.log(this.datas.datasets[0].backgroundColor)
 
         this.loaded = true
       } catch (e) {
