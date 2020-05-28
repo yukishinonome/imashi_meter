@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <header>
-      <img src="/logo_white.svg" alt="logo" />
+      <img class="app-logo" src="/logo_white.svg" alt="logo" />
     </header>
     <v-content>
       <v-container>
@@ -71,7 +71,7 @@ header {
   background-color: #121212;
 }
 
-img {
+.app-logo {
   height: 100%;
 }
 
