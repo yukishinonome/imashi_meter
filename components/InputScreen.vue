@@ -1,19 +1,31 @@
 <template>
-  <div>
-    <div>カテゴリー</div>
-    <v-btn-toggle v-model="iconType" tile color="#006FFF" group class="d-flex justify-space-around">
-      <v-btn value="game" outlined>
-        <v-icon>mdi-gamepad-variant</v-icon>
-      </v-btn>
-      <v-btn value="smoking" outlined>
-        <v-icon>mdi-smoking</v-icon>
-      </v-btn>
-      <v-btn value="sake" outlined>
-        <v-icon>mdi-glass-mug-variant</v-icon>
-      </v-btn>
-    </v-btn-toggle>
-    <div>課金額（半角数字）</div>
-    <v-text-field color="#006FFF" label="懺悔せよ" suffix="円" single-line outlined type="number"></v-text-field>
+  <div class="component-container d-flex flex-column justify-center">
+    <div class="list-title">カテゴリー</div>
+    <div class="d-flex justify-space-around margin-up-down">
+      <v-btn-toggle
+        v-for="(icon, index) in icons"
+        :key="index"
+        v-model="iconType"
+        tile
+        color="#006FFF"
+        group
+      >
+        <v-btn :value="icon.alt" outlined color="#006FFF">
+          <img :src="icon.src" :alt="icon.alt" width="48" />
+        </v-btn>
+      </v-btn-toggle>
+    </div>
+    <div class="list-title">課金額（半角数字）</div>
+    <div>
+      <div class="text-center big-text margin-up-down">＊＊＊円</div>
+      <!-- <v-text-field color="#006FFF" label="懺悔せよ" suffix="円" single-line outlined type="number"></v-text-field> -->
+      <v-slider
+        v-model="slider.val"
+        :color="slider.color"
+        :track-color="slider.trackColor"
+        :label="slider.label"
+      ></v-slider>
+    </div>
   </div>
 </template>
 
@@ -21,7 +33,31 @@
 export default {
   data: () => ({
     activeBtn: 0,
-    iconType: 'heart'
+    iconType: 'heart',
+    slider: {
+      label: 'color',
+      val: 25,
+      color: '#FF007A',
+      trackColor: '#006FFF'
+    },
+    icons: [
+      {
+        src: '/category_game.png',
+        alt: 'game_icon'
+      },
+      {
+        src: '/category_cigarette.png',
+        alt: 'cigarette_icon'
+      },
+      {
+        src: '/category_beer.png',
+        alt: 'beer_icon'
+      },
+      {
+        src: '/category_pachinko.png',
+        alt: 'pachinko_icon'
+      }
+    ]
   })
 }
 </script>

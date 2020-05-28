@@ -16,7 +16,26 @@
     </div>
     <div v-else-if="printPage == 'INPUT'" class="d-flex flex-column align-center">
       <input-screen />
-      <v-btn color="#006FFF" outlined rounded large :ripple="false" @click="toImashime">追加</v-btn>
+      <div>
+        <v-btn
+          color="#006FFF"
+          class="btn-margin"
+          outlined
+          rounded
+          large
+          :ripple="false"
+          @click="toMain"
+        >戻る</v-btn>
+        <v-btn
+          color="#006FFF"
+          class="margin-left-right"
+          outlined
+          rounded
+          large
+          :ripple="false"
+          @click="toImashime"
+        >追加</v-btn>
+      </div>
     </div>
     <div v-else class="d-flex flex-column align-center">
       <imashime-card />
@@ -53,7 +72,7 @@ export default {
 
 <style lang="scss">
 .container {
-  height: 80vh;
+  height: 70vh;
 }
 
 .circle {
@@ -62,6 +81,27 @@ export default {
   height: 300px;
   border-radius: 50%;
   font-size: 1.2rem;
+  filter: drop-shadow(0 0 5px #006fff);
+  animation: circle 3s linear infinite;
+}
+
+@keyframes circle {
+  0% {
+    border-color: #006fff;
+    filter: drop-shadow(0 0 5px #006fff);
+  }
+  30% {
+    border-color: #006fff;
+    filter: drop-shadow(0 0 5px #006fff);
+  }
+  40% {
+    border-color: #00d4ff;
+    filter: drop-shadow(0 0 15px #00d4ff);
+  }
+  100% {
+    border-color: #006fff;
+    filter: drop-shadow(0 0 5px #006fff);
+  }
 }
 
 .big-text {

@@ -1,36 +1,23 @@
 <template>
-  <div>
-    <v-card class="mx-auto" max-width="800" outlined>
-      <v-list-item three-line>
-        <v-list-item-content>
-          <v-list-item-title class="headline mb-1 text-align-center">
-            課金総額
-            <br />
-            {{ sum }}円
-          </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-    </v-card>
+  <div class="page-container d-flex flex-column justify-center">
+    <div class="price-box">
+      課金総額
+      <br />
+      <span class="big-text">{{ sum.toLocaleString() }}</span> 円
+    </div>
     <br />
-    <div>戒めリスト</div>
-    <v-simple-table fixed-header dark>
+    <div class="list-title">戒めリスト</div>
+    <v-simple-table fixed-header dark class="table-margin" height="45vh">
       <tbody>
         <tr v-for="item in items" :key="item.category">
           <td>{{ item.category }}</td>
-          <td>{{ item.num }}</td>
-          <td>{{ item.unit }}</td>
-          </v-row>
+          <td class="text-right">{{ item.num }} {{ item.unit }}</td>
         </tr>
       </tbody>
     </v-simple-table>
-    <v-divider></v-divider>
   </div>
 </template>
-<style lang="scss">
-.text-align-center {
-  text-align: center;
-}
-</style>
+
 <script>
 export default {
   data() {
@@ -127,3 +114,21 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.price-box {
+  border: 2px solid #006fff;
+  border-radius: 5px;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.theme--dark.v-data-table {
+  background-color: transparent;
+}
+.theme--dark.v-data-table
+  tbody
+  tr:hover:not(.v-data-table__expanded__content):not(.v-data-table__empty-wrapper) {
+  background-color: darkblue;
+}
+</style>
