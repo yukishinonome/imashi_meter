@@ -13,7 +13,7 @@
         rounded
         large
         :ripple="false"
-        @click="toMain"
+        @click="$emit('componentToMain')"
         >閉じる</v-btn
       >
     </div>

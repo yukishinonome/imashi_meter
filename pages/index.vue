@@ -32,7 +32,7 @@
       />
     </div>
     <div v-else class="d-flex flex-column align-center">
-      <imashime-card />
+      <imashime-card @componentToMain="toMain" />
     </div>
   </div>
 </template>
@@ -66,6 +66,11 @@ export default {
     },
     toMain() {
       this.printPage = 'MAIN'
+      this.updateData()
+    },
+    updateData() {
+      this.totalAmount = 0
+      this.loadHistories()
     },
     async loadHistories() {
       try {
