@@ -8,7 +8,7 @@
         <div class="circle d-flex flex-column justify-center align-center">
           <div>今月の課金総額</div>
           <div>
-            <span class="big-text">{{ totalAmount.toLocaleString() }}</span>円
+            <span class="big-text">{{ totalAmount.toLocaleString() }}</span> 円
           </div>
         </div>
       </div>
@@ -60,7 +60,6 @@ export default {
   }),
   mounted() {
     this.loadHistories()
-    // this.renderChart(this.datas, this.options)
   },
   methods: {
     toInput() {
