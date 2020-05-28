@@ -79,9 +79,8 @@ export default {
         const now = new Date()
         const thisMonth = now.getMonth() + 1
         Object.entries(data).forEach(([key, value]) => {
-          if (this.getHistoryMonth(value) == thisMonth) {
+          if (this.getHistoryMonth(value) === thisMonth) {
             this.thisMonthHistories.push(value)
-          } else {
           }
         })
         Object.entries(this.thisMonthHistories).forEach(([key, value]) => {
@@ -92,16 +91,9 @@ export default {
       }
     },
     getHistoryMonth(history) {
-      const month = history.created_at.slice(5, 7)
-      let historyMonth
-      if (month.match(/0/)) {
-        // もし1（01）〜9（09）月なら
-        historyMonth = month.substring(1, 2)
-      } else {
-        // もし10（10）〜12（12）月なら
-        historyMonth = month
-      }
-      return historyMonth
+      let month = history.created_at.slice(5, 7)
+      month = parseInt(month)
+      return month
     }
   }
 }
