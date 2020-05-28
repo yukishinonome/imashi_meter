@@ -16,9 +16,11 @@
         </v-btn>
       </v-btn-toggle>
     </div>
-    <div class="list-title">課金額（半角数字）</div>
+    <div class="list-title">課金額</div>
     <div>
-      <div class="text-center big-text margin-up-down">{{ price }} 円</div>
+      <div class="text-center margin-up-down">
+        <span class="big-text">{{ price }}</span> 円
+      </div>
       <!-- <v-text-field color="#006FFF" label="懺悔せよ" suffix="円" single-line outlined type="number"></v-text-field> -->
       <div class="d-flex justify-space-around margin-up-down">
         <div v-for="(slider, index) in sliders" :key="index">
@@ -41,6 +43,24 @@ export default {
   data: () => ({
     activeBtn: 0,
     iconType: 'game_icon',
+    icons: [
+      {
+        src: '/category_game.png',
+        alt: 'game_icon'
+      },
+      {
+        src: '/category_cigarette.png',
+        alt: 'cigarette_icon'
+      },
+      {
+        src: '/category_beer.png',
+        alt: 'beer_icon'
+      },
+      {
+        src: '/category_pachinko.png',
+        alt: 'pachinko_icon'
+      }
+    ],
     sliders: [
       {
         val: 10
@@ -60,24 +80,6 @@ export default {
       {
         val: 60
       }
-    ],
-    icons: [
-      {
-        src: '/category_game.png',
-        alt: 'game_icon'
-      },
-      {
-        src: '/category_cigarette.png',
-        alt: 'cigarette_icon'
-      },
-      {
-        src: '/category_beer.png',
-        alt: 'beer_icon'
-      },
-      {
-        src: '/category_pachinko.png',
-        alt: 'pachinko_icon'
-      }
     ]
   }),
   computed: {
@@ -90,6 +92,14 @@ export default {
         this.sliders[4].val +
         this.sliders[5].val / 10
       ).toLocaleString()
+    }
+  },
+  methods: {
+    async postData() {
+      await this.$axios.$post(
+        'https://api-server-gtb.herokuapp.com/histories',
+        { amounts: 5000, category: 'ゲーム' }
+      )
     }
   }
 }
