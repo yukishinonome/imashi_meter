@@ -34,7 +34,7 @@
 export default {
   data: () => ({
     activeBtn: 0,
-    iconType: 'heart',
+    iconType: 'game_icon',
     slider: {
       label: 'color',
       val: 25,
