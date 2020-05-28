@@ -55,8 +55,7 @@ export default {
   },
   data: () => ({
     printPage: 'MAIN',
-    totalAmount: 0,
-    thisMonthHistories: []
+    totalAmount: 0
   }),
   mounted() {
     this.loadHistories()
@@ -80,11 +79,8 @@ export default {
         const thisMonth = now.getMonth() + 1
         Object.entries(data).forEach(([key, value]) => {
           if (this.getHistoryMonth(value) === thisMonth) {
-            this.thisMonthHistories.push(value)
+            this.totalAmount += value.amounts
           }
-        })
-        Object.entries(this.thisMonthHistories).forEach(([key, value]) => {
-          this.totalAmount += value.amounts
         })
       } catch (e) {
         console.error(e)
