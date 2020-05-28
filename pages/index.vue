@@ -12,14 +12,27 @@
           </div>
         </div>
       </div>
-      <v-btn color="#006FFF" outlined rounded large :ripple="false" @click="toInput">課金金額入力</v-btn>
+      <v-btn
+        color="#006FFF"
+        outlined
+        rounded
+        large
+        :ripple="false"
+        @click="toInput"
+        >課金金額入力</v-btn
+      >
     </div>
-    <div v-else-if="printPage == 'INPUT'" class="d-flex flex-column align-center">
-      <input-screen @componentToMain="toMain" @componentToImashime="toImashime" />
+    <div
+      v-else-if="printPage == 'INPUT'"
+      class="d-flex flex-column align-center"
+    >
+      <input-screen
+        @componentToMain="toMain"
+        @componentToImashime="toImashime"
+      />
     </div>
     <div v-else class="d-flex flex-column align-center">
       <imashime-card />
-      <v-btn color="#006FFF" outlined rounded large :ripple="false" @click="toMain">閉じる</v-btn>
     </div>
   </div>
 </template>
