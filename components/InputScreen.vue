@@ -22,7 +22,14 @@
       <!-- <v-text-field color="#006FFF" label="懺悔せよ" suffix="円" single-line outlined type="number"></v-text-field> -->
       <div class="d-flex justify-space-around margin-up-down">
         <div v-for="(slider, index) in sliders" :key="index">
-          <v-slider v-model="slider.val" color="#FF007A" track-color="#006FFF" vertical step="10"></v-slider>
+          <v-slider
+            v-model="slider.val"
+            color="#FF007A"
+            track-color="#006FFF"
+            vertical
+            step="10"
+            max="90"
+          ></v-slider>
         </div>
       </div>
     </div>
@@ -34,7 +41,6 @@ export default {
   data: () => ({
     activeBtn: 0,
     iconType: 'game_icon',
-    price: 0,
     sliders: [
       {
         val: 10
@@ -73,7 +79,19 @@ export default {
         alt: 'pachinko_icon'
       }
     ]
-  })
+  }),
+  computed: {
+    price() {
+      return (
+        this.sliders[0].val * 10000 +
+        this.sliders[1].val * 1000 +
+        this.sliders[2].val * 100 +
+        this.sliders[3].val * 10 +
+        this.sliders[4].val +
+        this.sliders[5].val / 10
+      ).toLocaleString()
+    }
+  }
 }
 </script>
 
