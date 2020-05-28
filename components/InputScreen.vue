@@ -18,14 +18,13 @@
     </div>
     <div class="list-title">課金額（半角数字）</div>
     <div>
-      <div class="text-center big-text margin-up-down">＊＊＊円</div>
+      <div class="text-center big-text margin-up-down">{{ price }} 円</div>
       <!-- <v-text-field color="#006FFF" label="懺悔せよ" suffix="円" single-line outlined type="number"></v-text-field> -->
-      <v-slider
-        v-model="slider.val"
-        :color="slider.color"
-        :track-color="slider.trackColor"
-        :label="slider.label"
-      ></v-slider>
+      <div class="d-flex justify-space-around margin-up-down">
+        <div v-for="(slider, index) in sliders" :key="index">
+          <v-slider v-model="slider.val" color="#FF007A" track-color="#006FFF" vertical step="10"></v-slider>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -35,12 +34,27 @@ export default {
   data: () => ({
     activeBtn: 0,
     iconType: 'game_icon',
-    slider: {
-      label: 'color',
-      val: 25,
-      color: '#FF007A',
-      trackColor: '#006FFF'
-    },
+    price: 0,
+    sliders: [
+      {
+        val: 10
+      },
+      {
+        val: 20
+      },
+      {
+        val: 30
+      },
+      {
+        val: 40
+      },
+      {
+        val: 50
+      },
+      {
+        val: 60
+      }
+    ],
     icons: [
       {
         src: '/category_game.png',
