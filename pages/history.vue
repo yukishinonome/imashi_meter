@@ -37,7 +37,7 @@ export default {
       const data = await this.$axios.$get(
         'https://api-server-gtb.herokuapp.com/histories'
       )
-      this.histories = data
+      this.histories = data.reverse()
     }
   }
 }

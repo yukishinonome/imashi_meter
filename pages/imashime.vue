@@ -75,7 +75,7 @@ export default {
         },
         {
           category: 'ハワイ旅行（400,000円）',
-          price: 4000000,
+          price: 400000,
           num: 0,
           unit: '回分'
         },

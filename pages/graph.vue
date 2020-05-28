@@ -1,9 +1,13 @@
 <template>
-  <div>
+  <div class="page-container d-flex flex-column align-center">
     <div class="text-center">今月</div>
-    <graph-screen v-if="loaded" :data="dataCollection" />
-    <v-divider></v-divider>
-    <v-simple-table fixed-header dark height="300px">
+    <graph-screen
+      v-if="loaded"
+      class="graph-container"
+      :data="dataCollection"
+    />
+    <div class="list-title full-width">カテゴリー別の課金総額</div>
+    <v-simple-table fixed-header dark height="30vh" class="full-width">
       <thead>
         <tr class="text-left">
           <th>総額</th>
@@ -11,7 +15,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="[key, value] in Array.from(categoriesAmounts)">
+        <tr v-for="[key, value] in Array.from(categoriesAmounts)" :key="key">
           <td>{{ key }}</td>
           <td>{{ value }}円</td>
         </tr>
@@ -21,7 +25,6 @@
 </template>
 
 <script>
-import Vue from 'vue'
 import graphScreen from '~/components/graphScreen'
 
 export default {
@@ -88,7 +91,8 @@ export default {
         datasets: [
           {
             data,
-            backgroundColor
+            backgroundColor,
+            borderWidth: 1
           }
         ]
       }
@@ -134,7 +138,7 @@ export default {
         // グラフの描画
         const categories = labelsForGraph
         const amounts = datasForGraph
-        const bgColors = ['#ffffff', '#00ff00', '#006FFF', '#F2C94C']
+        const bgColors = ['#3300CC', '#6600CC', '#CC00CC', '#FF0066']
         this.fillData(categories, amounts, bgColors)
         this.loaded = true
       } catch (e) {
@@ -144,3 +148,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.graph-container {
+  max-width: 300px;
+  width: 80%;
+  margin-bottom: 15px;
+}
+
+.full-width {
+  width: 100%;
+}
+</style>
