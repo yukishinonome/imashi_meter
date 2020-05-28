@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-center">今月</div>
-    <doughnut-chart-component v-if="loaded" :data="dataCollection" />
+    <graph-screen v-if="loaded" :data="dataCollection" />
     <v-divider></v-divider>
     <v-simple-table fixed-header dark height="300px">
       <thead>
@@ -31,14 +31,6 @@ export default {
   data() {
     return {
       loaded: false,
-      // options: {
-      //   responsive: true,
-      //   maintainAspectRatio: true
-      // },
-      // data: {
-      //   labels: [],
-      //   data: []
-      // },
       dataCollection: null,
       totalAmount: 0,
       histories: [],
@@ -48,7 +40,6 @@ export default {
   },
   mounted() {
     this.loadHistories()
-    // this.renderChart(this.datas, this.options)
   },
   methods: {
     // 各履歴の月を取得
@@ -93,11 +84,11 @@ export default {
     fillData(labels, data, backgroundColor) {
       this.loaded = true
       this.dataCollection = {
-        labels: ['A', 'B', 'C'],
+        labels,
         datasets: [
           {
-            data: [10, 20, 30],
-            backgroundColor: ['#f87979', '#aa4c8f', '#38b48b']
+            data,
+            backgroundColor
           }
         ]
       }
@@ -115,7 +106,7 @@ export default {
         const thisMonth = now.getMonth() + 1
 
         Object.entries(historyData).forEach(([key, value]) => {
-          if (this.getHistoryMonth(value) == thisMonth) {
+          if (this.getHistoryMonth(value) === thisMonth) {
             this.thisMonthHistories.push(value)
           }
         })
@@ -124,21 +115,27 @@ export default {
         this.calculateTotalAmounts(this.thisMonthHistories)
         this.calculateCategoriesAmounts(this.thisMonthHistories)
 
-        // // 重複がないようにカテゴリーを配列labelsに追加
-        // for (let i = 0; i < this.thisMonthHistories.length; i++) {
-        //   this.datas.labels.push(this.thisMonthHistories[i].category)
-        //   this.datas.datasets[0].data.push(this.thisMonthHistories[i].amounts)
-        //   this.datas.datasets[0].backgroundColor.push('#006FFF')
-        // }
+        const labelsForGraph = []
+        const datasForGraph = []
 
-        // this.histories = historyData
+        this.categoriesAmounts.forEach(function(value, key) {
+          console.log(key + ' : ' + value)
+          labelsForGraph.push(key)
+          datasForGraph.push(value)
+        })
 
-        // this.fillData(2, 3, 4)
+        /// 念のためコードの保存
+        // const categories = ['ゲーム', 'ジュース']
+        // const ammounts = [18000, 12000]
+        // const bgColors = ['#ffffff', '#00ff00', '#006FFF', '#00ff00']
+        // this.fillData(categories, ammounts, bgColors)
+        /// ////////////
 
-        // console.log(this.datas.labels)
-        // console.log(this.datas.datasets[0].data)
-        // console.log(this.datas.datasets[0].backgroundColor)
-        console.log(this.categoriesAmounts)
+        // グラフの描画
+        const categories = labelsForGraph
+        const amounts = datasForGraph
+        const bgColors = ['#ffffff', '#00ff00', '#006FFF', '#F2C94C']
+        this.fillData(categories, amounts, bgColors)
         this.loaded = true
       } catch (e) {
         console.error(e)
@@ -146,6 +143,4 @@ export default {
     }
   }
 }
-
-Vue.component('doughnut-chart-component', graphScreen)
 </script>
