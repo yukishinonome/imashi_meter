@@ -16,26 +16,6 @@
     </div>
     <div v-else-if="printPage == 'INPUT'" class="d-flex flex-column align-center">
       <input-screen @componentToMain="toMain" @componentToImashime="toImashime" />
-      <!-- <div>
-        <v-btn
-          color="#006FFF"
-          class="btn-margin"
-          outlined
-          rounded
-          large
-          :ripple="false"
-          @click="toMain"
-        >戻る</v-btn>
-        <v-btn
-          color="#006FFF"
-          class="margin-left-right"
-          outlined
-          rounded
-          large
-          :ripple="false"
-          @click="toImashime"
-        >追加</v-btn>
-      </div>-->
     </div>
     <div v-else class="d-flex flex-column align-center">
       <imashime-card />

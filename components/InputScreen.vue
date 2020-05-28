@@ -34,6 +34,7 @@
           ></v-slider>
         </div>
       </div>
+      <div v-if="priceError" class="text-center error-text margin-up-down">課金額は10円以上で設定してください</div>
       <div class="text-center">
         <v-btn
           color="#006FFF"
@@ -61,8 +62,9 @@
 <script>
 export default {
   data: () => ({
+    priceError: false,
     activeBtn: 0,
-    iconType: 'game_icon',
+    iconType: 'ゲーム',
     icons: [
       {
         src: '/category_game.png',
@@ -119,12 +121,16 @@ export default {
       )
     },
     toImashima() {
-      this.postData()
+      if (this.sumPrice() >= 10) {
+        this.postData()
+      } else {
+        this.priceError = true
+      }
     },
     async postData() {
       await this.$axios.$post(
         'https://api-server-gtb.herokuapp.com/histories',
-        { amounts: 8000, category: 'ゲーム' }
+        { amounts: this.sumPrice(), category: this.iconType }
       )
       this.$emit('componentToImashime')
     }
@@ -135,5 +141,9 @@ export default {
 <style lang="scss">
 .icon-style {
   background-color: #006fff;
+}
+
+.error-text {
+  color: red;
 }
 </style>
