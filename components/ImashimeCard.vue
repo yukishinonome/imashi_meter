@@ -49,9 +49,11 @@ export default {
           String(Math.floor(this.inputedAmount / 300)) +
           '個分です！！'
       } else {
-        this.imagePath = '/list_umaibou.png'
+        this.imagePath = '/list_umaibo.png'
         this.judgementResult =
-          'うまい棒約' + String(Math.floor(this.inputedAmount / 10))
+          'うまい棒約' +
+          String(Math.floor(this.inputedAmount / 10)) +
+          '本分です！！'
       }
     },
     // APIより履歴データをロード
