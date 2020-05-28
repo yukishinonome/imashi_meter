@@ -2,7 +2,7 @@
   <div class="component-container d-flex flex-column justify-center">
     <div class="list-title">カテゴリー</div>
     <div class="d-flex justify-space-around margin-up-down">
-      <v-btn-toggle
+      <!-- <v-btn-toggle
         v-for="(icon, index) in icons"
         :key="index"
         v-model="iconType"
@@ -13,6 +13,20 @@
       >
         <v-btn :value="icon.alt" color="#006FFF" outlined>
           <img :src="icon.src" :alt="icon.alt" width="48" />
+        </v-btn>
+      </v-btn-toggle>-->
+      <v-btn-toggle
+        v-model="iconType"
+        tile
+        background-color="transparent"
+        borderless
+        active-class="icon-style"
+      >
+        <v-btn value="game_icon" color="#006FFF" outlined>
+          <img src="/category_game.png" alt="game_icon" width="48" />
+        </v-btn>
+        <v-btn value="cigarette_icon" color="#006FFF" outlined>
+          <img src="/category_cigarette.png" alt="cigarette_icon" width="48" />
         </v-btn>
       </v-btn-toggle>
     </div>
