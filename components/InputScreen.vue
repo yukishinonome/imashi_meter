@@ -34,6 +34,26 @@
           ></v-slider>
         </div>
       </div>
+      <div class="text-center">
+        <v-btn
+          color="#006FFF"
+          class="btn-margin"
+          outlined
+          rounded
+          large
+          :ripple="false"
+          @click="$emit('componentToMain')"
+        >戻る</v-btn>
+        <v-btn
+          color="#006FFF"
+          class="margin-left-right"
+          outlined
+          rounded
+          large
+          :ripple="false"
+          @click="toImashima"
+        >追加</v-btn>
+      </div>
     </div>
   </div>
 </template>
@@ -46,19 +66,19 @@ export default {
     icons: [
       {
         src: '/category_game.png',
-        alt: 'game_icon'
+        alt: 'ゲーム'
       },
       {
         src: '/category_cigarette.png',
-        alt: 'cigarette_icon'
+        alt: 'タバコ'
       },
       {
         src: '/category_beer.png',
-        alt: 'beer_icon'
+        alt: '酒'
       },
       {
         src: '/category_pachinko.png',
-        alt: 'pachinko_icon'
+        alt: 'パチンコ'
       }
     ],
     sliders: [
@@ -84,6 +104,11 @@ export default {
   }),
   computed: {
     price() {
+      return this.sumPrice().toLocaleString()
+    }
+  },
+  methods: {
+    sumPrice() {
       return (
         this.sliders[0].val * 10000 +
         this.sliders[1].val * 1000 +
@@ -91,15 +116,17 @@ export default {
         this.sliders[3].val * 10 +
         this.sliders[4].val +
         this.sliders[5].val / 10
-      ).toLocaleString()
-    }
-  },
-  methods: {
+      )
+    },
+    toImashima() {
+      this.postData()
+    },
     async postData() {
       await this.$axios.$post(
         'https://api-server-gtb.herokuapp.com/histories',
-        { amounts: 5000, category: 'ゲーム' }
+        { amounts: 8000, category: 'ゲーム' }
       )
+      this.$emit('componentToImashime')
     }
   }
 }

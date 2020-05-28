@@ -15,8 +15,8 @@
       <v-btn color="#006FFF" outlined rounded large :ripple="false" @click="toInput">課金金額入力</v-btn>
     </div>
     <div v-else-if="printPage == 'INPUT'" class="d-flex flex-column align-center">
-      <input-screen />
-      <div>
+      <input-screen @componentToMain="toMain" @componentToImashime="toImashime" />
+      <!-- <div>
         <v-btn
           color="#006FFF"
           class="btn-margin"
@@ -35,7 +35,7 @@
           :ripple="false"
           @click="toImashime"
         >追加</v-btn>
-      </div>
+      </div>-->
     </div>
     <div v-else class="d-flex flex-column align-center">
       <imashime-card />
@@ -55,7 +55,11 @@ export default {
   },
   data: () => ({
     printPage: 'MAIN',
-    totalAmount: 0
+    totalAmount: 0,
+    apiData: {
+      amounts: 0,
+      category: ''
+    }
   }),
   mounted() {
     this.loadHistories()
