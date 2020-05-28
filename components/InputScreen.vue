@@ -34,7 +34,9 @@
           ></v-slider>
         </div>
       </div>
-      <div v-if="priceError" class="text-center error-text margin-up-down">課金額は10円以上で設定してください</div>
+      <div v-if="priceError" class="text-center error-text margin-up-down">
+        課金額は10円以上で設定してください
+      </div>
       <div class="text-center d-flex justify-space-around">
         <v-btn
           color="#006FFF"
@@ -43,7 +45,8 @@
           large
           :ripple="false"
           @click="$emit('componentToMain')"
-        >戻る</v-btn>
+          >戻る</v-btn
+        >
         <v-btn
           class="pink-btn"
           color="#FF007A"
@@ -52,8 +55,17 @@
           large
           :ripple="false"
           @click="allZero"
-        >0円</v-btn>
-        <v-btn color="#006FFF" outlined rounded large :ripple="false" @click="toImashima">追加</v-btn>
+          >0円</v-btn
+        >
+        <v-btn
+          color="#006FFF"
+          outlined
+          rounded
+          large
+          :ripple="false"
+          @click="toImashima"
+          >追加</v-btn
+        >
       </div>
     </div>
   </div>
@@ -133,10 +145,14 @@ export default {
       }
     },
     async postData() {
-      await this.$axios.$post(
-        'https://api-server-gtb.herokuapp.com/histories',
-        { amounts: this.sumPrice(), category: this.iconType }
-      )
+      try {
+        await this.$axios.$post(
+          'https://api-server-gtb.herokuapp.com/histories',
+          { amounts: this.sumPrice(), category: this.iconType }
+        )
+      } catch (e) {
+        console.error(e)
+      }
       this.$emit('componentToImashime')
     }
   }
